@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mój Chatbot AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="container">
+        <h1>Zapytaj AI </h1>
+        <form action="/zapytaj" method="POST">
+            <textarea name="pytanie" id="pytanie" rows="4" placeholder="Wpisz swoje pytanie ."> </textarea>
+            <h1>Wybierz osobowość AI</h1>
+            <h2>Jaką osobowość ma mieć bot?</h2>
+            <select name="osobowosc">
+                <option value="Jesteś poważnym asystentem, który udziela rzeczowych i profesjonalnych odpowiedzi.">Poważny asystent</option>
+                <option value="Jesteś zabawnym kompanem, który odpowiada w lekki i humorystyczny sposób.">Zabawny kompan</option>
+                <option value="Jesteś sarkastycznym korepetytorem, który odpowiada w sposób ironiczny i z humorem.">Sarkastyczny korepetytor</option>
+            </select>
+            <br>
+            <button type="submit">Wyślij </button>
+        </form>
+        <div class="answer-box">
+        {% if odpowiedz %}
+        <p>{{ odpowiedz }} </p>
+        {% else %}
+        <p>Tutaj pojawi się odpowiedź AI. </p>
+        {% endif %}
+        </div>
+    </main>
+</body>
+</html>
